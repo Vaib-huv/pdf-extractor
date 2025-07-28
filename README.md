@@ -40,10 +40,6 @@ This tool:
 📄 main.py ← Main script that runs the logic
 📜 README.md ← You're here!
 
-yaml
-Copy
-Edit
-
 ---
 
 ## 🧪 Example Output
@@ -63,6 +59,7 @@ For a file like `report.pdf`, you get:
     "languages_detected": ["latin"]
   }
 }
+```
 🧰 Dependencies
 Python 3.7+
 
