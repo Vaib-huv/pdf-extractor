@@ -78,12 +78,16 @@ pip install -r requirements.txt
 🏃 How to Run
 Place your PDF files inside the input/ folder
 
-Run the script:
+```
+docker build --platform linux/amd64 -t 
+mysolutionname:somerandomidentifier
 
-bash
-Copy
-Edit
-python main.py
+```
+```
+```docker run --rm -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output -
+network none mysolutionname:somerandomidentifier
+```  
+
 Get your .json outlines inside the output/ folder 🎉
 
 🔍 Tips
