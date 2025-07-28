@@ -1,1 +1,3 @@
-PyMuPDF==1.23.26
+pymupdf==1.24.2   # ~9 MB
+pandas==2.2.2     # needs numpy but net size still <60 MB
+numpy==1.26.4

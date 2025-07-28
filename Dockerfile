@@ -1,17 +1,18 @@
-FROM python:3.11-slim
+# syntax=docker/dockerfile:1
+FROM --platform=linux/amd64 python:3.11-slim
 
-# Set working directory
-WORKDIR /app
+# Install tiny build tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential gcc poppler-utils \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install Python dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy requirements & install
+COPY requirements.txt /tmp/
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-# Copy application code
-COPY main.py .
-
-# Create input and output directories
+# Create runtime dirs
 RUN mkdir -p /app/input /app/output
+WORKDIR /app
+COPY run.py .
 
-# Run the application
-CMD ["python", "main.py"]
+ENTRYPOINT ["python", "run.py"]
